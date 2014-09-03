@@ -1,0 +1,56 @@
+//Minimum
+function min(a, b) {
+  return a < b ? a : b;
+};
+console.log(min(0, 10));
+// → 0
+console.log(min(0, -10));
+// → -10
+
+//Recursion
+function isEven(number) {
+  if(number < 0) {
+    return isEven(-number);
+  } else if(number === 0) {
+    return true;
+  } else if (number === 1) {
+    return false;
+  } else {
+    return isEven(number - 2);
+  }
+};
+
+console.log(isEven(50));
+// → true
+console.log(isEven(75));
+// → false
+console.log(isEven(-1));
+// → ??
+
+//Bean Counting
+function countBs(str) {
+  var i = 0;
+  var count = 0;
+  while( i < str.length) {
+    if(str.charAt(i) === "B") {
+      count++;
+    }
+    i++;
+  }
+  return count;
+};
+function countChar(str, character) {
+  var i = 0;
+  var count = 0;
+  while( i < str.length) {
+    if(str.charAt(i) === character) {
+      count++;
+    }
+    i++;
+  }
+  return count;
+};
+console.log(countBs("BBC"));
+// → 2
+console.log(countChar("kakkerlak", "k"));
+// → 4
