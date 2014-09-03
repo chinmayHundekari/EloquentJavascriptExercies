@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <title>Program Structure</title>
+    <script>
+      //Looping a traingle
+      var lineNo = 1;
+      var character = "#";
+      var line = "";
+      while(lineNo <= 7) {
+        line += character;
+        console.log(line);
+        lineNo++;
+      }
+      
+      //FIZZBUZZ
+      var number = 1;
+      while(number <= 100) {
+        var line = "";
+        if(number % 3 === 0) {
+          line += "Fizz";
+        }
+        if(number % 5 === 0) {
+          line += "Buzz";
+        }
+        if(number % 3 !== 0 && number % 5 !== 0) {
+          line += number;
+        }
+        console.log(line);
+        number++;
+      }
+      
+      //Chess Board
+      var size = 8;
+      var x = 0;
+      var char1 = " ", char2 = "#";
+      while(x < size) {
+        var line = "";
+        var y = 0;
+        var temp = char1;
+        char1 = char2;
+        char2 = temp;
+        while(y < size) {
+          if(y % 2 === 0) {
+            line += char1;
+          } else {
+            line += char2;
+          }
+          y++;
+        }
+        console.log(line);
+        x++;
+      }
+      </script>
+    </head>
+  <body>
+    <h1>Program Structure</h1>
+    <h2>Looping a triangle</h2>
+    <h2>FIZZBUZZ</h2>
+    <h2>Chess Board</h2>
+  </body>
+</html>
