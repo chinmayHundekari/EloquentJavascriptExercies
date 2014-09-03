@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <script>
+      var range = function(start, end, step) {
+        var arr = [];
+        if(step === undefined) {
+          step = 1;
+        } 
+        if(step < 0) {
+          while(end <= start) {
+            arr.push(start);
+            start += step;
+          }
+        } else if (step === 0) {
+          console.log("Error: Step is 0")
+        } else {
+          while(end >= start) {
+            arr.push(start);
+            start += step;
+          }
+        }
+        return arr;
+      };
+      
+      var sum = function(arr) {
+        var sum = 0;
+        for(element in arr) {
+          sum += arr[element];
+        }
+        return sum;
+      }
+      
+      console.log(sum(range(1, 10)));
+      // → 55
+      console.log(range(5, 2, -1));
+      // → [5, 4, 3, 2]
+    </script>
+  </head>
+</html>
