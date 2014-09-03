@@ -24,3 +24,54 @@ function ageDiff(person) {
 
 console.log(average(ancestry.filter(filtMother).map(ageDiff)));
 // → 31.22222222222222
+
+//Historical life expectancy
+function average(array) {
+  function plus(a, b) { return a + b; }
+  return array.reduce(plus) / array.length;
+}
+
+// Your code here.
+function century(person) {
+  return {century : Math.ceil(person.died / 100),
+          age : person.died - person.born
+         };
+}
+centuryAge = ancestry.map(century);
+
+arr = {}
+function group(obj) {
+  if(!(obj.century in arr)) {
+  	arr[obj.century] = [obj.age];    
+  } else {
+    arr[obj.century].push(obj.age);
+  }
+}
+centuryAge.forEach(group);
+for (var i in arr) {
+  console.log(i,":",average(arr[i]));
+}
+
+// → 16: 43.5
+//   17: 51.2
+//   18: 52.8
+//   19: 54.8
+//   20: 84.7
+//   21: 94
+
+//Every and then some
+var every = function(arr, func) {
+  return arr.filter(func).length === arr.length;
+};
+
+var some = function(arr, func) {
+  return arr.filter(func).length !== 0;
+};
+console.log(every([NaN, NaN, NaN], isNaN));
+// → true
+console.log(every([NaN, NaN, 4], isNaN));
+// → false
+console.log(some([NaN, 3, 4], isNaN));
+// → true
+console.log(some([2, 3, 4], isNaN));
+// → false
